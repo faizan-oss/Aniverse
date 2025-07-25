@@ -7,7 +7,7 @@ const Footer = () => {
         p: 2,
     }}>
         <Typography variant="subtitle1" align="center">
-        Copyright 2024 © <Link to='https://atharvamulgund.web.app/' className='link'>Atharva Mulgund</Link> & <Link to='https://www.linkedin.com/in/aashish-nair-4ab401193/' className='link'>Aasish Nair</Link>
+        Copyright 2024 © <Link to='https://beamish-zabaione-ae68a5.netlify.app/' className='link'>Faizan</Link> 
         </Typography>
     </Container>
   )

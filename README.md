@@ -42,8 +42,8 @@ Explore Aniverse
 Open your browser and start exploring the captivating world of anime on Aniverse.
 
 ## Authors
-  - [@atharvamulgund](https://www.github.com/atharvamulgund)
-  - [@aasishnair](https://github.com/AashishNair01)
+  - [@faizanrahmankhan](https://github.com/faizanrahmankhan)
+  - [@faizan-oss](https://github.com/yourgithubusername)
 
 ## Contribute
 

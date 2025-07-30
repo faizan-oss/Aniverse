@@ -70,3 +70,72 @@ a {
 .contant_box_404 {
   margin-top: -50px;
 }
+
+/* Modern Autocomplete (Select Input) */
+.modern-autocomplete .MuiInputBase-root {
+  border-radius: 12px;
+  background: #f5f7fa;
+  box-shadow: 0 2px 8px rgba(30, 136, 229, 0.08);
+  border: 1px solid #e3e8ee;
+  font-size: 1.1rem;
+  transition: box-shadow 0.2s;
+}
+.modern-autocomplete .MuiInputBase-root:focus-within {
+  box-shadow: 0 4px 16px rgba(30, 136, 229, 0.15);
+  border-color: #1976d2;
+}
+.modern-autocomplete .MuiAutocomplete-popupIndicator,
+.modern-autocomplete .MuiAutocomplete-clearIndicator {
+  color: #1976d2;
+}
+
+/* Modern Pagination */
+.modern-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(30, 136, 229, 0.08);
+  padding: 0.5rem 1.5rem;
+  margin: 2rem auto 0 auto;
+}
+.modern-pagination .MuiPaginationItem-root {
+  font-weight: 600;
+  color: #1976d2;
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
+}
+.modern-pagination .Mui-selected {
+  background: #1976d2 !important;
+  color: #fff !important;
+}
+
+/* Fade-in Up Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fade-in-up {
+  opacity: 0;
+  animation: fadeInUp 0.7s ease forwards;
+}
+
+/* Neon Card Hover Animation */
+.fade-in-up:hover, .character-card:hover {
+  transform: scale(1.04);
+  box-shadow: 0 0 16px 4px #00fff7, 0 2px 8px rgba(30,136,229,0.08);
+  border: 2px solid #00fff7;
+  transition: transform 0.2s, box-shadow 0.2s, border 0.2s;
+  z-index: 2;
+}
+.fade-in-up, .character-card {
+  transition: transform 0.2s, box-shadow 0.2s, border 0.2s;
+  border: 2px solid transparent;
+}

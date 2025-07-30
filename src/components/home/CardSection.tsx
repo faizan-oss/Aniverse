@@ -66,46 +66,141 @@ const CardSection = () => {
 
             {!isLoading ?
                 (
-                    <>
+                <>
                         <Box sx={{
                             display: 'flex',
                             justifyContent: { lg: 'space-around', sm: 'center', xs: 'center' },
                             alignItems: 'center',
                             width: '100%',
                             flexWrap: "wrap",
-                            gap:'1rem'
-                        }}>
-                            <Typography color='#0f0' fontWeight="bold" sx={{
-                                fontSize: { lg: '2.25rem', sm: '2.25rem', xs: '1.75rem' },
-                                textAlign:{xs:'center'}
-                            }} >
+                            gap: '1rem',
+                        }}
+                    >
+                            <Typography
+                                sx={{
+                                    fontSize: { lg: '2.75rem', sm: '2.25rem', xs: '2rem' },
+                                    fontWeight: 900,
+                                    letterSpacing: 2,
+                                    textAlign: { xs: 'center' },
+                                    background: 'linear-gradient(90deg, #00fff7 0%, #1976d2 100%)',
+                                    WebkitBackgroundClip: 'text',
+                                    WebkitTextFillColor: 'transparent',
+                                    backgroundClip: 'text',
+                                    textFillColor: 'transparent',
+                                    mb: 1,
+                                    mt: 1,
+                                    fontFamily: 'Montserrat, Inter, Arial, sans-serif',
+                                    textTransform: 'uppercase',
+                                    lineHeight: 1.1,
+                                    userSelect: 'none',
+                                }}
+                            >
                                 Anime List
                             </Typography>
-                            <Autocomplete
-                                disablePortal
-                                id="combo-box-demo"
-                                onOpen={autoComplete}
-                                options={[...autoCompleteData]}
-                                sx={{ width: 300 }}
-                                onChange={(_event, newValue:any) => {
-                                    setName(newValue)
-                                }}
-                                renderInput={(params) => <TextField {...params} label="Search and select any Anime" variant="filled" fullWidth />}
-                            />
-                        </Box>
+                        <Autocomplete
+                            disablePortal
+                            id="combo-box-demo"
+                            onOpen={autoComplete}
+                            options={[...autoCompleteData]}
+                            sx={{
+                                width: 340,
+                                fontFamily: 'Montserrat, Inter, Arial, sans-serif',
+                                '.MuiInputBase-root': {
+                                    borderRadius: '999px',
+                                    background: '#fff',
+                                    color: '#222',
+                                    fontSize: '1.15rem',
+                                    fontWeight: 600,
+                                    boxShadow: '0 2px 12px 0 rgba(0,255,247,0.08)',
+                                    border: '2px solid',
+                                    borderColor: '#1781D5',
+                                    transition: 'border 0.2s, box-shadow 0.2s',
+                                    paddingLeft: '10px',
+                                },
+                                '.MuiInputBase-root.Mui-focused': {
+                                    border: '2px solid #1781D5',
+                                    boxShadow: '0 0 16px 2px #1781D5',
+                                },
+                                '.MuiAutocomplete-popupIndicator': {
+                                    color: '#1781D5',
+                                },
+                                '.MuiAutocomplete-clearIndicator': {
+                                    color: '#00fff7',
+                                },
+                                '.MuiAutocomplete-listbox': {
+                                    background: '#fff',
+                                    color: '#222',
+                                    fontFamily: 'Montserrat, Inter, Arial, sans-serif',
+                                },
+                                '.MuiAutocomplete-option': {
+                                    fontSize: '1.08rem',
+                                    fontWeight: 500,
+                                    borderRadius: '8px',
+                                    transition: 'background 0.2s',
+                                    '&[aria-selected="true"]': {
+                                        background: 'linear-gradient(90deg, #00fff722 0%, #1976d2 10%)',
+                                        color: '#00fff7',
+                                    },
+                                    '&:hover': {
+                                        background: 'linear-gradient(90deg, #00fff744 0%, #1976d2 100%)',
+                                        color: '#00fff7',
+                                    },
+                                },
+                            }}
+                            onChange={(_event, newValue: any) => {
+                                setName(newValue)
+                            }}
+                            renderInput={(params) => (
+                                <TextField
+                                    {...params}
+                                    label="Search and select any Anime"
+                                    variant="filled"
+                                    fullWidth
+                                    InputLabelProps={{
+                                        style: {
+                                            color: '#1781D5',
+                                            fontWeight: 700,
+                                            fontFamily: 'Montserrat, Inter, Arial, sans-serif',
+                                            fontSize: '1.08rem',
+                                            letterSpacing: 1,
+                                        },
+                                    }}
+                                    InputProps={{
+                                        ...params.InputProps,
+                                        style: {
+                                            color: '#222',
+                                            fontWeight: 600,
+                                            fontFamily: 'Montserrat, Inter, Arial, sans-serif',
+                                            fontSize: '1.15rem',
+                                            borderRadius: 999,
+                                            background: '#fff',
+                                            boxShadow: '0 2px 12px 0 rgba(0,255,247,0.08)',
+                                            paddingLeft: 10,
+                                        },
+                                        disableUnderline: true,
+                                    }}
+                                />
+                            )}
+                        />
+                    </Box>
 
-                        <Box sx={{
-                            display: 'flex',
+                    <Box sx={{
+                        display: 'flex',
                             justifyContent: { lg: 'space-between', sm: 'center', xs: 'center' },
                             alignItems: 'center',
-                            width: '100%',
+                        width: '100%',
                             flexWrap: "wrap",
                             gap: '1rem'
-                        }}>
-                            {cardData?.map((item:any) => {
+                    }}>
+                            {cardData?.map((item:any, idx:number) => {
                                 const url = `/aniverse/id?id=${item?.mal_id}`
-                                return (
-                                    <Card sx={{ minWidth: 275, maxWidth: 275, maxHeight: 400, padding: '0.5rem' }} key={item?.rank}>
+                            return (
+                                    <Card
+                                        className="fade-in-up"
+                                        style={{ animationDelay: `${idx * 0.08 + 0.1}s` }}
+                                        sx={{ minWidth: 275, maxWidth: 275, maxHeight: 400, padding: '0.5rem' }}
+                                        key={item?.rank}
+                                    >
                                         <Link to={url}>
                                             <CardActionArea>
                                                 <CardMedia
@@ -139,23 +234,15 @@ const CardSection = () => {
                                         </Link>
                                     </Card>
                                 )
-                            })}
-                            <Box sx={{
-                                display: 'flex',
-                                justifyContent: 'space-between',
-                                alignItems: 'center',
-                                width: '100%',
-                                flexWrap: "wrap",
-                                gap: '1rem'
-                            }}>
-                                <Typography>Page: {page}</Typography>
-                                <Pagination count={pageCount} page={page} onChange={handleChange} size="small" />
-                            </Box>
-                        </Box>
-                    </>
-                ) : (
-                    <Loader />
-                )}
+                        })}
+                    <Box className="modern-pagination" sx={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                        <Pagination count={pageCount} page={page} onChange={handleChange} size="small" />
+                    </Box>
+                    </Box>
+                </>
+            ) : (
+                <Loader />
+            )}
 
         </Container>
     )
